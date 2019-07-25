@@ -8,7 +8,7 @@ gem "bootstrap-kaminari-views"
 gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
-gem "faker"
+gem "faker", "1.9.6"
 gem "font-awesome-sass", "~> 4.7.0"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
@@ -24,6 +24,8 @@ gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
+  gem "rspec-rails"
   gem "sqlite3"
 end
 
