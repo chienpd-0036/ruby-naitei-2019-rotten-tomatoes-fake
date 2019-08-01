@@ -340,6 +340,7 @@ en:
   login_title: "Login"
   logout: "Logout"
   signup_title: "Sign Up"
+  admin: "Admin"
   subcribe: "Subcribe"
   name: "Name: "
   submit: "Submit"
