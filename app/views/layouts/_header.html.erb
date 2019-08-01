@@ -12,13 +12,13 @@
             <nav>
               <ul>
                 <li class="active">
-                  <%= link_to t("movies_title"), "#" %>
+                  <%= link_to t("movies_title"), movies_path %>
                 </li>
                 <li>
-                  <%= link_to t("tvshow_title"), "#" %>
+                  <%= link_to t("tvshow_title"), tv_shows_path %>
                 </li>
                 <li>
-                  <%= link_to t("news_title"), "#" %>
+                  <%= link_to t("news_title"), news_index_path %>
                 </li>
                 <% if logged_in? %>
                 <li>

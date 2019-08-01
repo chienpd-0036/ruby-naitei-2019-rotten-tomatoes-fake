@@ -42,7 +42,7 @@ class NewsController < ApplicationController
     else
       flash[:danger] = t ".delete_failed"
     end
-    redirect_to news_url
+    redirect_to news_index_path
   end
 
   private
@@ -56,7 +56,7 @@ class NewsController < ApplicationController
 
     return if @news
     flash[:danger] = t ".not_found"
-    redirect_to news_url
+    redirect_to news_index_path
   end
 
   def build_user

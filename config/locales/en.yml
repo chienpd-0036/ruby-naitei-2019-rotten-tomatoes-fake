@@ -1,5 +1,6 @@
 en:
-  project_title: "Home Video - Ftage"
+  add_celebiry: "Add Celebrity"
+  project_title: "Rotten Potatoes - Review Film"
   users:
     new:
       h1: "Sign up"
@@ -71,6 +72,7 @@ en:
         edit: "Edit"
         destroy: "Destroy"
         sure: "Are you sure?"
+        add_season: "Add a season: "
       new:
         title: "New TvShow"
       edit:
@@ -81,8 +83,7 @@ en:
       destroy:
         deleted_success: "TvShow Deleted"
         delete_failed: "Delete Tvshow Failed !"
-      show:
-        add_season: "Add a season: "
+
     seasons:
       create:
         create_success: "Season Created"
@@ -97,7 +98,7 @@ en:
         info: "Info"
       season:
         edit: "Edit this season: "
-        delete: "Delete season"
+        delete: "Delete this season"
       edit:
         edit: "Editing season "
       show:
@@ -126,6 +127,51 @@ en:
         edit: "Edit"
         back: "Back"
       duplicate: "Duplicated Episode number!"
+    celebrities:
+      not_found: "Celebrity not found!"
+      form:
+        name: "Name"
+        date_of_birth: "Date of Birth"
+        gender: "Gender"
+        nationality: "Nationality"
+        submit: "Submit"
+      index:
+        title: "Celebrities"
+        show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
+        sure: "Are you sure?"
+        new: "New Celebrity"
+      create:
+        create_success: "Celebrity Created"
+        create_failed: "Create Celebrity Failed!"
+      show:
+        title: "Show Celebrity"
+        edit: "Edit"
+        destroy: "Destroy"
+        sure: "Are you sure?"
+      new:
+        title: "New Celebrity"
+      edit:
+        title: "Editing Celebrity"
+      update:
+        update_success: "Celebrity Updated"
+        update_fail: "Update Celebrity Failed !"
+      destroy:
+        delete_success: "Celebrity Deleted"
+    celebrity_media:
+      not_found: "Celebrity not found!"
+      form:
+        celebrity: "Celebrity"
+        role: "Role"
+      create:
+        create_success: "Celebrity Created"
+        create_failed: "Create Celebrity Failed!"
+      destroy:
+        delete_success: "Celebrity Deleted"
+      celebrity_medium:
+        destroy: "Delete"
+        sure: "Are you sure?"
 
   movies:
     show:
@@ -172,6 +218,14 @@ en:
       edit: "Edit"
       destroy: "Destroy"
       sure: "Are you sure?"
+      tab_movie:
+        title: "Movies"
+        top: "Top Movies"
+        new: "New Movies"
+      tab_tvshow:
+        title: "TVShow"
+        top: "Top TVshow"
+        new: "New TVshow"
     new:
       title: "New TvShow"
     edit:
@@ -233,6 +287,24 @@ en:
       create_failed: "Create News Failed!"
     show:
       title: "Show News"
+
+  reviews:
+    not_found: "Review not found!"
+    form:
+      content: "Content"
+      score: "Score"
+      submit: "Submit"
+    index:
+      title: "Reviews"
+      show: "Show"
+      destroy: "Destroy"
+      sure: "Are you sure?"
+      new: "New Review"
+    create:
+      create_success: "Review Created"
+      create_failed: "Create Review Failed!"
+    show:
+      title: "Show Review"
       edit: "Edit"
       destroy: "Destroy"
       sure: "Are you sure?"
@@ -244,8 +316,9 @@ en:
       update_success: "News Updated"
       update_fail: "Update News Failed !"
     destroy:
-      deleted_success: "News Deleted"
       delete_failed: "Delete News Failed !"
+      title: "New Review"
+      deleted_success: "Review Deleted"
 
   time:
     formats:

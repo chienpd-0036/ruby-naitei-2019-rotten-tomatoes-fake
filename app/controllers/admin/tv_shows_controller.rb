@@ -2,7 +2,7 @@ class Admin::TvShowsController < Admin::BaseController
   before_action :load_tvshow, except: %i(index new create)
 
   def index
-    @tv_shows = TvShow.create_desc.page(params[:page]).per Settings.paginate
+    @tv_shows = TvShow.all.page(params[:page]).per Settings.tvshows.paginate
   end
 
   def new

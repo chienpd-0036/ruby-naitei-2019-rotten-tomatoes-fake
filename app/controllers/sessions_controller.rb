@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:remember_me] == "1" ? remember(user) : forget(user)
       user.admin? ? redirect_to(admin_root_path) : redirect_to(root_path)
     else
-      render :new
+      redirect_to root_path
     end
   end
 

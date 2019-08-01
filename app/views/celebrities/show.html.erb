@@ -6,7 +6,3 @@
   <td><%= @celebrity.nationality %></td>
   <td><%= image_tag @celebrity.portrait.url if @celebrity.portrait? %></td>
 </tr>
-<tr>
-  <td><%= link_to t(".edit"), edit_celebrity_path(@celebrity) %></td>
-  <td><%= link_to t(".destroy"), @celebrity, method: :delete, data: {confirm: t(".sure")} %></td>
-</tr>

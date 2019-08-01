@@ -22,12 +22,17 @@
         </li>
         <li>
           <%= link_to admin_movies_path do %>
-            <i class="ti-package"></i> <span><%= "movies_title" %></span>
+            <i class="ti-palette"></i> <span><%= t "movies_title" %></span>
           <% end %>
         </li>
         <li>
           <%= link_to admin_tv_shows_path do %>
-            <i class="ti-crown"></i> <span><%= t "tvshow_title" %></span>
+            <i class="ti-palette"></i> <span><%= t ".tv_show" %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_celebrities_path do %>
+            <i class="ti-palette"></i> <span><%= t ".celebrities" %></span>
           <% end %>
         </li>
       </ul>
