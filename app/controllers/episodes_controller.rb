@@ -7,7 +7,7 @@ class EpisodesController < ApplicationController
     @episode = Episode.find_by id: params[:id]
     @review = Review.new
 
-    @reviewed = current_user.reviewed? @movie.medium if logged_in?
+    @reviewed = current_user.reviewed? @episode.medium if logged_in?
   end
 
   def build_movie_tvshow
