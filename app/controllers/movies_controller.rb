@@ -1,22 +1,20 @@
 class MoviesController < ApplicationController
   include ReviewsHelper
-  before_action :load_movie, :build_user, only: :show
+  before_action :load_movie, only: :show
+  before_action :build_movie_tvshow, only: %i(index show)
 
   def index
-    @movies = Movie.create_desc.page(params[:page]).per Settings.movies.paginate
+    @movies = Movie.create_desc.page(params[:page]).per Settings.paginate
   end
 
   def show
-    @top_new_show = Movie.create_top_new.top_new_show
-    @top_new_more = @top_new_show.top_new_more
-
-    @top_score_show = Movie.create_top_score.top_score_show
-    @top_score_more = @top_score_show.top_score_more
-
     @review = Review.new
 
-    @critic_score = @movie.score :critic
-    @audience_score = @movie.score :normal
+    @critic_score = @movie.score(:critic)
+                          .zero? ? "N/A" : @movie.score(:critic).round(1)
+    @audience_score = @movie.score(:normal)
+                            .zero? ? "N/A" : @movie.score(:normal).round(1)
+    @celebrities = Movie.celebrities_list @movie.id
   end
 
   private
@@ -29,7 +27,11 @@ class MoviesController < ApplicationController
     redirect_to movies_url
   end
 
-  def build_user
-    @user = User.new
+  def build_movie_tvshow
+    @top_score_movie = Movie.create_top_score
+    @top_score_movie_tab = @top_score_movie.take Settings.tab_show
+
+    @top_score_tvshow = TvShow.create_top_score
+    @top_score_tvshow_tab = @top_score_tvshow.take Settings.tab_show
   end
 end

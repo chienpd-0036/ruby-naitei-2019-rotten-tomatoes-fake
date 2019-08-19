@@ -1,5 +1,5 @@
 <%= content_for :slider do %>
-<div class="slider-area fake-slider container"></div>
+  <div class="slider-area fake-slider container"></div>
 <% end %>
 <div class="container content-margin-top reset-padding">
   <% if !@movies.any? and !@tvshows.any? %>
@@ -18,13 +18,36 @@
       </div>
       <% if @tvshows.any? %>
         <h3 class="text-white movie_head"> <span class="badge badge-secondary"><%=t (".tv_shows") %></span></h3>
-
     <% end %>
       <div class="row">
         <br>
-        <% @tvshows.each do |tvshow| %>
-          <%= render tvshow %>
+          <% @movies.each do |movie| %>
+            <%= render movie %>
+          <% end %>
+        </div>
+        <% if @tvshows.any? %>
+          <h3 class="text-white movie_head"> <span class="badge badge-secondary"><%=t (".tv_shows") %></span></h3>
         <% end %>
+        <div class="row">
+        <br>
+          <% @tvshows.each do |tvshow| %>
+            <%= render tvshow %>
+          <% end %>
+        </div>
+    </div>
+    <div class="col-3 reset-padding">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to t("movies.show.tab_movie.title"), "#menu1", data: {toggle: "pill"}, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("movies.show.tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link"%>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <%= render "movies/menu1" %>
+        <%= render "movies/menu2" %>
       </div>
     </div>
   </div>

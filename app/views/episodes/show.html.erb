@@ -6,37 +6,37 @@
     <div class="col-3 reset-padding">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <%= link_to t(".tab_movie.title"), "#menu1", data: {toggle: "pill"}, class: "nav-link active" %>
+          <%= link_to t("movies.show.tab_movie.title"), "#menu1", data: {toggle: "pill"}, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to t(".tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link"%>
+          <%= link_to t("movies.show.tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link active"%>
         </li>
       </ul>
-      <!-- Tab panes -->
       <div class="tab-content">
-        <%= render "movies/menu1" %>
-        <%= render "movies/menu2" %>
+        <%= render "tv_shows/menu1" %>
+        <%= render "tv_shows/menu2" %>
       </div>
     </div>
     <div class="col-9">
       <div class="row">
-        <div class="col-4">
-          <%= image_tag @movie.poster.url if @movie.poster? %>
-        </div>
-        <div class="col-8 bg-dark">
+        <div class="col-8 offset-2 bg-dark">
           <br>
           <div class="text-center">
             <h3 class="text-white">
-              <%= @movie.name %>
+              <%= @episode.season.tv_show.name %>
             </h3>
-              <% if @critic_score.zero? %>
-                <div class="text-white">
-                  <%= t ".right_box.note1" %>
-                </div>
-                <div class="text-white">
-                  <%= t ".right_box.note2" %>
-                </div>
-              <% end %>
+            <h3 class="text-white">
+              Season <%= @episode.season.season_number %> -
+              Episode <%= @episode.episode_number %>
+            </h3>
+            <% if @critic_score.zero? %>
+              <div class="text-white">
+                <%= t "movies.show.right_box.note1" %>
+              </div>
+              <div class="text-white">
+                <%= t "movies.show.right_box.note2" %>
+              </div>
+            <% end %>
           </div>
           <br>
           <div class="row">
@@ -44,55 +44,42 @@
               <h3><span class="badge-warning badge">
                   <%= @critic_score %></span></h3>
               <h4 class="text-muted">
-                <%= t ".right_box.tomascore" %>
+                <%= t "movies.show.right_box.tomascore" %>
               </h4>
               <p class="text-light">
-                <%= t ".right_box.explain1" %>
+                <%= t "movies.show.right_box.explain1" %>
               </p>
             </div>
             <div class="col-6">
               <h3><span class="badge-warning badge">
                   <%= @audience_score %></span></h3>
               <h4 class="text-muted">
-                <%= t ".right_box.audiscore" %>
+                <%= t "movies.show.right_box.audiscore" %>
               </h4>
               <p class="text-light">
-                <%= t ".right_box.explain2" %>
+                <%= t "movies.show.right_box.explain2" %>
               </p>
             </div>
           </div>
         </div>
       </div><br>
       <div class="row">
-        <div class="col-4">
-        </div>
-        <div class="col-8">
+        <div class="col-8 offset-2">
           <% if user_signed_in? %>
-            <%= render("reviews/form", medium_id: @movie.medium.id) unless reviewed?(current_user, @movie.medium) %>
+            <%= render("reviews/form", medium_id: @episode.medium.id, user_id: current_user.id) unless @reviewed %>
           <% end %>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= @movie.name %></span>
-            <%= t"photos"%>
-          </h3>
-        </div>
-        <div class="col-12">
-          <%= image_tag @movie.poster.url if @movie.poster?%>
-        </div>
-      </div><br><br>
-      <div class="row">
-        <div class="col-12">
-          <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= t".tab_movie.title" %></span>
+              <%= t"movies.show.tab_movie.title" %></span>
             <%= t"info"%>
           </h3>
         </div>
         <div class="col-12">
           <p>
-            <%= @movie.info %>
+            <%= @episode.info %>
           </p>
         </div>
       </div>
@@ -113,10 +100,10 @@
               <%= t"review" %></span>
           </h3>
         </div>
-        <% if @movie.medium.reviews.any? %>
-          <%= render @movie.medium.reviews %>
+        <% if @episode.medium.reviews.any? %>
+          <%= render @episode.medium.reviews %>
         <% else %>
-          <%= t ".no_review" %>
+          <%= "No review yet" %>
         <% end %>
       </div>
     </div>

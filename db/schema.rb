@@ -45,8 +45,6 @@ ActiveRecord::Schema.define(version: 2019_08_20_032617) do
 
   create_table "episodes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "release_date"
-    t.float "critic_score"
-    t.float "audience_score"
     t.text "info"
     t.bigint "season_id"
     t.datetime "created_at", null: false
@@ -65,8 +63,6 @@ ActiveRecord::Schema.define(version: 2019_08_20_032617) do
   create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "release_date"
-    t.float "critic_score"
-    t.float "audience_score"
     t.text "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,6 +1,6 @@
 <td>#<%= news.id %></td>
 <td><h4><%= link_to news.title.truncate_words(Settings.news.title.truncate), [:admin, news] %></h4></td>
-<td><%= news.status.capitalize %></td>
+<td><%= news.status %></td>
 <td>
   <div>
     <%= render "edit_form", news: news%>

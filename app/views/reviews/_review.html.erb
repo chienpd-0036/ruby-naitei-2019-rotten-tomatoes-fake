@@ -1,12 +1,9 @@
-<br>
-<br>
 <div class="col-12">
   <div class="card review-box">
     <div class="card-body">
     <div class="row">
       <div class="col-md-2">
         <%= image_tag("def_face.jpg", alt: "", class: "img img-rounded img-fluid")  %>
-        <p class="text-secondary text-center"><%= I18n.l(review.created_at.to_time, format: :long) %></p>
       </div>
       <div class="col-md-10">
         <p>
@@ -19,7 +16,7 @@
         <br>
         <p class="content-review-color"><%= review.content %></p>
         <p>
-          <% if current_user %>
+          <% if user_signed_in? %>
             <% if current_user.admin? || current_user == review.user %>
               <%= link_to t(".delete"), review, method: :delete,
       data: {confirm: t(".sure")}, class: "float-right btn btn-outline-primary ml-2"  %>

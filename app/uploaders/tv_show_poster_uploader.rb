@@ -1,6 +1,6 @@
 class TvShowPosterUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  process resize_to_limit: [Settings.tvshows.index_poster_heigth,
+  process resize_to_fill: [Settings.tvshows.index_poster_height,
     Settings.tvshows.index_poster_width]
 
   storage :file

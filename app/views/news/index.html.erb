@@ -23,6 +23,10 @@
           <%= link_to t("movies.show.tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link" %>
         </li>
       </ul>
+      <div class="tab-content">
+        <%= render "movies/menu1"%>
+        <%= render "movies/menu2"%>
+      </div>
     </div>
   </div>
 </div>

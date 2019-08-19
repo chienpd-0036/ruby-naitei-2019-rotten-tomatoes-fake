@@ -6,32 +6,34 @@
     <div class="col-3 reset-padding">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <%= link_to t(".tab_movie.title"), "#menu1", data: {toggle: "pill"}, class: "nav-link"%>
+          <%= link_to t("movies.show.tab_movie.title"), "#menu1", data: {toggle: "pill"}, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to t(".tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link active" %>
+          <%= link_to t("movies.show.tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link active"%>
         </li>
       </ul>
-      <!-- Tab panes -->
       <div class="tab-content">
-        <%= render "tv_shows/menu1"%>
-        <%= render "tv_shows/menu2"%>
+        <%= render "tv_shows/menu1" %>
+        <%= render "tv_shows/menu2" %>
       </div>
     </div>
     <div class="col-9">
       <div class="row">
         <div class="col-4">
-          <%= image_tag @tv_show.poster.url if @tv_show.poster? %>
+          <%= image_tag @season.poster.url if @season.poster? %>
         </div>
         <div class="col-8 bg-dark">
           <br>
           <div class="text-center">
             <h3 class="text-white">
-              <%= @tv_show.name %>
+              <%= @season.tv_show.name %>
+            </h3>
+            <h3 class="text-white">
+              Season <%= @season.season_number %>
             </h3>
             <% if @critic_score.zero? %>
               <div class="text-white">
-                <%= t "movies.show..right_box.note1" %>
+                <%= t "movies.show.right_box.note1" %>
               </div>
               <div class="text-white">
                 <%= t "movies.show.right_box.note2" %>
@@ -66,16 +68,17 @@
       <div class="row">
         <div class="col-12">
           <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= t "seasons" %></span></h3>
+              <%= t "episodes" %></span></h3>
           <div class="row">
-            <% @tv_show.seasons.each do |season| %>
+            <% @season.episodes.each do |episode| %>
               <div class="col-4">
                 <div class="card seasons_line">
-                  <%= image_tag season.poster.url, class: "card-img-top" if season.poster? %>
                   <div class="card-body">
                     <h4 class="card-title">
-                      <span class="badge badge-warning"><%= season.score(:critic).zero? ? "N/A" : season.score(:critic).round(1)  %></span>
-                      <%= link_to "Season #{season.season_number}", tv_show_season_path(@tv_show, season)%>
+                      <span class="badge badge-warning">
+                        <%= episode.score(:critic).zero? ? "N/A" : episode.score(:critic).round(1) %>
+                      </span>
+                      <%= link_to "Episode #{episode.episode_number}", tv_show_season_episode_path(@tv_show, @season, episode)%>
                     </h4>
                   </div>
                 </div>
@@ -87,12 +90,12 @@
       <div class="row">
         <div class="col-12">
           <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= @tv_show.name %></span>
+              Season <%= @season.season_number %></span>
             <%= t"photos"%>
           </h3>
         </div>
         <div class="col-12">
-          <%= image_tag @tv_show.poster.url if @tv_show.poster?%>
+          <%= image_tag @season.poster.url if @season.poster?%>
         </div>
       </div><br><br>
       <div class="row">
@@ -104,7 +107,7 @@
         </div>
         <div class="col-12">
           <p>
-            <%= @tv_show.info %>
+            <%= @season.info %>
           </p>
         </div>
       </div>
@@ -115,7 +118,9 @@
         </div>
         <div class="col-12">
           <div class="row">
-            <%= render @celebrities %>
+            <% if @celebrities.any? %>
+              <%= render @celebrities %>
+            <% end %>
           </div>
         </div>
       </div>

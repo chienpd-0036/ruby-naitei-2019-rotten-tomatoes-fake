@@ -345,8 +345,8 @@
 }
 
 .fake-slider {
-  padding-top: 270px;
-  border-bottom: 4px solid #f09722;
+  padding-top: 200px;
+  /*border-bottom: 4px solid #f09722;*/
 }
 
 .reset-margin {
@@ -514,7 +514,7 @@
   float: right;
   position: relative;
   margin-top: -37px;
-  background-color: #b4ff94;
+  background-color: #ffc107;
   color:black;
   height: 37px;
 }
@@ -557,4 +557,127 @@
   color: white;
   background-color: #333;
   font-size: 17px;
+}
+
+.movie_line {
+  width: 17rem;
+  margin-bottom: 20px;
+}
+
+.item-body {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 32ch;
+}
+
+.movie_head {
+  margin: 0 auto;
+  width: 100%;
+  text-align: left !important;
+  display: block;
+  border-bottom: 3px solid #6b6363b5;
+  margin-bottom: 15px;
+}
+
+.seasons_line {
+  margin-bottom: 20px;
+}
+
+.review-box {
+  margin-bottom: 12px;
+  background-color: initial;
+  border: 1px solid #e2a750;
+  border-radius: 26px;
+}
+
+.content-review-color {
+  color: white;
+}
+
+.rate input {
+  border: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
+}
+
+.rate label {
+  position: relative;
+  float: right;
+  color: #C8C8C8;
+}
+
+.rate label:before {
+  margin: 5px;
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size: 1.5em;
+  color: #ccc;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.rate input:checked ~ label:before {
+  color: #FFC107;
+}
+
+.rate label:hover ~ label:before {
+  color: #ffdb70;
+}
+
+.rate label:hover:before {
+  color: #FFC107;
+}
+
+.logo-head {
+
+}
+.card-img-top{
+  width: 270px;
+  height: 400px;
+}
+
+.tvshow-home-image img{
+  width: 270px ;
+  height: 300px ;
+}
+
+.nav-tabs li {
+  margin-left: 0 !important;
+  font-weight: 400;
+}
+
+.bg-overlay-2 {
+  /*position: fixed;*/
+  width: 100%;
+  bottom: 0;
+}
+
+.background-color-white {
+  background-color: white;
+  padding: 30px;
+}
+
+#error_explanation li {
+  color:red;
+}
+
+.image-new-user {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.media-body h4, span, p{
+  color: wheat;
+}
+
+.trailer-titel p:last-child {
+  color:black;
 }

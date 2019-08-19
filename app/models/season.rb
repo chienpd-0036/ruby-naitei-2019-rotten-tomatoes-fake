@@ -10,9 +10,15 @@ class Season < ApplicationRecord
     length: {maximum: Settings.seasons.info_max_length}
   validate :unique_season_number
 
+  celebrities_list = lambda do |season_id|
+    Celebrity.where(id: includes(episodes: [medium: [celebrity_media: :celebrity]]).where(id: season_id)
+                                                .pluck("celebrities.id").uniq)
+  end
+  scope :celebrities_list, celebrities_list
+
   def score user_role
     arr = episodes.map{|e| e.score(user_role)}.reject(&:zero?)
-    return 0 if arr&.any?
+    return 0 if arr.empty?
     arr.reduce(:+) / arr.size
   end
 
